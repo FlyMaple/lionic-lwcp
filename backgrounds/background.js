@@ -87,7 +87,7 @@
                 var uid = info.id || 'guest';
 
                 $.ajax({
-                    url: 'http://ufs.lionic.com:8083/api/v1/toolbar_user/' + uid + '/query',
+                    url: 'https://ufs.lionic.com:8084/api/v1/toolbar_user/' + uid + '/query',
                     type: 'post',
                     dataType: 'json',
                     data: JSON.stringify({
@@ -120,7 +120,7 @@
             var uid = info.id || 'guest';
 
             $.ajax({
-                url: 'http://ufs.lionic.com:8083/api/v1/toolbar_user/' + uid + '/suggest',
+                url: 'https://ufs.lionic.com:8084/api/v1/toolbar_user/' + uid + '/suggest',
                 type: 'post',
                 dataType: 'json',
                 data: JSON.stringify({
