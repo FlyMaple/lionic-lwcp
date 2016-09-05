@@ -6,7 +6,7 @@
 
 ![chrome-extension](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/chrome-extension.png)
 
-2.[擴充管理頁面](chrome://extensions/) 進行 LWCP 常規設定
+2.Url 輸入 chrome://extensions 進行 LWCP 常規設定
   * 自動隱藏 Toolbar (3秒) (defulat: true)
   * 重回分頁是否重新加載 Toolbar (defulat: true)
   * 自動填入 Email Address
