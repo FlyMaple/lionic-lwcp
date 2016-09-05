@@ -6,6 +6,7 @@
         jQuery('.nav .show').on('click', showToolbar);
         jQuery('.nav .disable').on('click', disableToolbar);
         jQuery('.nav .enable').on('click', enableToolbar);
+        jQuery('.nav .about').on('click', aboutLWCP);
         jQuery('.nav .help').on('click', help);
 
         _runtime.sendMessage({ action: 'checkToolbarStatus' }, checkToolbarStatusComplete);
