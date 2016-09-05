@@ -1,0 +1,287 @@
+/* line 5, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 5, ../sass/optionsStyle.scss */
+*, *::after, *::before {
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* line 10, ../sass/optionsStyle.scss */
+body {
+  background: url("/images/options/bg.jpg");
+}
+
+/* line 14, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper {
+  width: 960px;
+  margin: 0 auto;
+  top: 100px;
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.49), inset 0 0 0px 4px #1b4d63;
+  border-radius: 2px;
+}
+/* line 23, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .header {
+  padding: 8px 0;
+  text-align: center;
+  background: #2e4b56;
+}
+/* line 28, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .header .logo {
+  width: 50px;
+}
+/* line 32, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body {
+  min-height: 400px;
+}
+/* line 35, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .left, .LWCP-Options-wrapper .body .right {
+  display: inline-block;
+  min-height: 400px;
+}
+/* line 39, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .left {
+  width: 170px;
+  margin-right: -170px;
+  background: #2a5d71;
+}
+/* line 44, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .left .menu {
+  cursor: pointer;
+}
+/* line 47, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .left .menu li {
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  font-size: 13px;
+  font-family: sans-serif;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #03435a;
+  color: #d6d6d6;
+  z-index: 20;
+}
+/* line 63, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .left .menu li.active {
+  font-weight: 600;
+  background: #dee3e7;
+  color: #123948;
+}
+/* line 69, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .left .menu li.active:hover {
+  cursor: default;
+}
+/* line 73, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .left .menu li:not(.active):hover {
+  background: #3a7c96;
+}
+/* line 79, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right {
+  float: right;
+  padding: 0 0 0 170px;
+  width: 100%;
+  background: #1a5267;
+}
+/* line 85, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container {
+  min-height: 400px;
+  padding: 40px 20px;
+  background: #dee3e7;
+}
+/* line 89, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  left: -1px;
+  width: 0;
+  box-shadow: -2px 0 2px 2px rgba(0, 0, 0, 0.19);
+  z-index: 1;
+}
+/* line 101, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings, .LWCP-Options-wrapper .body .right .container .common .submission-settings {
+  padding: 5px 30px;
+}
+/* line 104, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings .title, .LWCP-Options-wrapper .body .right .container .common .submission-settings .title {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: sans-serif;
+  letter-spacing: .6px;
+}
+/* line 114, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings .settings li, .LWCP-Options-wrapper .body .right .container .common .submission-settings .settings li {
+  padding: 0 0 0 20px;
+  margin: 0 0 10px 0;
+}
+/* line 118, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings .settings li .group, .LWCP-Options-wrapper .body .right .container .common .submission-settings .settings li .group {
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 123, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings .settings li .group.checked .checkbox::before, .LWCP-Options-wrapper .body .right .container .common .submission-settings .settings li .group.checked .checkbox::before {
+  box-shadow: inset 0 0 0 2px #dee3e7, inset 0 0 0 20px #2e4b56;
+}
+/* line 129, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings .settings li .group .label, .LWCP-Options-wrapper .body .right .container .common .submission-settings .settings li .group .label {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  height: 20px;
+  font-size: 16px;
+  font-family: sans-serif;
+  letter-spacing: .6px;
+  line-height: 20px;
+}
+/* line 141, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings .settings li .group .checkbox::before, .LWCP-Options-wrapper .body .right .container .common .submission-settings .settings li .group .checkbox::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2e4b56;
+  vertical-align: top;
+  border-radius: 2px;
+}
+/* line 151, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings .settings li .group .text, .LWCP-Options-wrapper .body .right .container .common .submission-settings .settings li .group .text {
+  padding: 2px 4px;
+  width: 220px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #2e4b56;
+  background: transparent;
+  letter-spacing: .4px;
+  color: #1b343e;
+}
+/* line 165, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .common .toolbar-settings {
+  margin: 0 0 20px 0;
+}
+/* line 169, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .advance {
+  text-align: center;
+}
+/* line 172, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5px;
+  text-align: right;
+  cursor: default;
+}
+/* line 181, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer .message {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+/* line 184, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer .message.success::before, .LWCP-Options-wrapper .body .right .container .footer .message.error::before {
+  font-size: 13px;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+/* line 191, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer .message.success::before {
+  content: 'Success';
+  color: #008090;
+  text-shadow: 0 0 2px #fff;
+}
+/* line 196, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer .message.error::before {
+  content: 'Error';
+  color: red;
+}
+/* line 201, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer .save, .LWCP-Options-wrapper .body .right .container .footer .restore {
+  outline: none;
+  padding: 3px 6px;
+  border: 1px solid #2e4b56;
+  background: #2e4b56;
+  color: #fff;
+  box-shadow: 1px 1px 2px 0 #000;
+  cursor: pointer;
+}
+/* line 209, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer .save:hover, .LWCP-Options-wrapper .body .right .container .footer .restore:hover {
+  background: #3a7c96;
+  border: 1px solid #3a7c96;
+}
+/* line 214, ../sass/optionsStyle.scss */
+.LWCP-Options-wrapper .body .right .container .footer .save {
+  margin: 0 10px 0 0;
+}
+
+/* line 223, ../sass/optionsStyle.scss */
+.clearfix {
+  clear: both;
+}

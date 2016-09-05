@@ -1,0 +1,225 @@
+@import 'compass/css3';
+@import 'compass/reset';
+
+
+*, *::after, *::before {
+    position: relative;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('/images/options/bg.jpg');
+}
+
+.LWCP-Options-wrapper {
+    width: 960px;
+    margin: 0 auto;
+    top: 100px;
+    padding: 4px;
+    background: #fff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.49), inset 0 0 0px 4px rgb(27, 77, 99);
+    border-radius: 2px;
+
+    .header {
+        padding: 8px 0;
+        text-align: center;
+        background: #2e4b56;
+        
+        .logo {
+            width: 50px;
+        }
+    }
+    .body {
+        min-height: 400px;
+
+        .left, .right {
+            display: inline-block;
+            min-height: 400px;
+        }
+        .left {
+            width: 170px;
+            margin-right: -170px;
+            background: #2a5d71;
+
+            .menu {
+                cursor: pointer;
+
+                li {
+                    display: inline-block;
+                    height: 40px;
+                    width: 100%;
+                    font: {
+                        size: 13px;
+                        family: sans-serif;
+                    }
+                    line-height: 40px;
+                    text-align: center;
+                    border-bottom: 1px solid #03435a;
+                    color: #d6d6d6;
+                    z-index: 20;
+                    &:last-child {
+                        
+                    }
+                    &.active {
+                        font: {
+                            weight: 600;
+                        }
+                        background: #dee3e7;
+                        color: #123948;
+                        &:hover {
+                            cursor: default;
+                        }
+                    }
+                    &:not(.active):hover {
+                        background: #3a7c96;
+                    }
+                }
+            }
+        }
+        .right {
+            float: right;
+            padding: 0 0 0 170px;
+            width: 100%;
+            background: #1a5267;
+
+            .container {
+                min-height: 400px;
+                padding: 40px 20px;
+                background: #dee3e7;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    bottom: 0;
+                    left: -1px;
+                    width: 0;
+                    box-shadow: -2px 0 2px 2px rgba(0, 0, 0, 0.19);
+                    z-index: 1;
+                }
+
+                .common {
+                    .toolbar-settings, .submission-settings {
+                        padding: 5px 30px;
+
+                        .title {
+                            margin: 0 0 15px 0;
+                            font: {
+                                size: 24px;
+                                weight: 600;
+                                family: sans-serif;
+                            }
+                            letter-spacing: .6px;
+                        }
+                        .settings {
+                            li {
+                                padding: 0 0 0 20px;
+                                margin: 0 0 10px 0;
+
+                                .group {
+                                    display: inline-block;
+                                    cursor: pointer;
+                                    &.checked {
+                                        .checkbox {
+                                            &::before {
+                                                box-shadow: inset 0 0 0 2px #dee3e7, inset 0 0 0 20px #2e4b56;
+                                            }
+                                        }
+                                    }
+
+                                    .label {
+                                        display: inline-block;
+                                        margin: 0 10px 0 0;
+                                        height: 20px;
+                                        font: {
+                                            size: 16px;
+                                            family: sans-serif;
+                                        }
+                                        letter-spacing: .6px;
+                                        line-height: 20px;
+                                    }
+                                    .checkbox {
+                                        &::before {
+                                            content: '';
+                                            display: inline-block;
+                                            width: 20px;
+                                            height: 20px;
+                                            border: 2px solid #2e4b56;
+                                            vertical-align: top;
+                                            border-radius: 2px;
+                                        }
+                                    }
+                                    .text {
+                                        padding: 2px 4px;
+                                        width: 220px;
+                                        outline: none;
+                                        border: none;
+                                        border-bottom: 1px solid #2e4b56;
+                                        background: transparent;
+                                        letter-spacing: .4px;
+                                        color: #1b343e;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .toolbar-settings {
+                        margin: 0 0 20px 0;
+                    }
+                }
+                .advance {
+                    text-align: center;
+                }
+                .footer{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    padding: 5px;
+                    text-align: right;
+                    cursor: default;
+
+                    .message {
+                        display: inline-block;
+                        margin: 0 10px 0 0;
+                        &.success::before, &.error::before {
+                            font: {
+                                size: 13px;
+                                family: sans-serif;
+                            }
+                            letter-spacing: 1px;
+                        }
+                        &.success::before {
+                            content: 'Success';
+                            color: #008090;
+                            text-shadow: 0 0 2px #fff;
+                        }
+                        &.error::before {
+                            content: 'Error';
+                            color: red;
+                        }
+                    }
+                    .save, .restore {
+                        outline: none;
+                        padding: 3px 6px;
+                        border: 1px solid #2e4b56;
+                        background: #2e4b56;
+                        color: #fff;
+                        box-shadow: 1px 1px 2px 0 #000;
+                        cursor: pointer;
+                        &:hover {
+                            background: #3a7c96;
+                            border: 1px solid #3a7c96;
+                        }
+                    }
+                    .save {
+                        margin: 0 10px 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.clearfix {
+    clear: both;
+}

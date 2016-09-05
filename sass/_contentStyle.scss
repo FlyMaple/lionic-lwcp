@@ -1,0 +1,214 @@
+#LWCP-ifr {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    z-index: 99999;
+    &.disabled {
+        display: none !important;
+    }
+}
+
+.LWCP-wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 34px;
+    background: #fff;
+    z-index: 99999;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.52);
+    *, *::after, *::before {
+        position: relative;
+        box-sizing: border-box;
+    }
+  
+    .readonly, .editable {
+        display: inline-block;
+        top: 50%;
+        vertical-align: top;
+        transform: translate(0, -50%);
+    }
+
+    .editable {
+        display: none;
+        line-height: 24px;
+    }
+    
+    .img-wrp {
+        display: inline-block;
+        width: 60px;
+        margin: 0 20px 0;
+        top: 2px;
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    .trustworthy {
+        display: inline-block;
+        padding: 2px 8px;
+        margin: 0 10px 0 0;
+        font: {
+            size: 12px;
+            family: sans-serif;
+        }
+        vertical-align: top;
+        color: #11324c;
+        background-color: #7dc6ff;
+    }
+  
+    .category {
+        display: inline-block;
+        padding: 2px 8px;
+        margin: 0 10px 0 0;
+        font: {
+            size: 12px;
+            weight: 600;
+            family: sans-serif;
+        }
+        vertical-align: top;
+    }
+  
+    .suggest {
+        position: absolute;
+        top: 3px;
+        right: 10px;
+        cursor: default;
+        
+        .text {
+            margin: 0 4px 0 0;
+            font: {
+                size: 12px;
+                family: sans-serif;
+            }
+            cursor: pointer;
+            color: #0066FF;
+        }
+        img {
+            top: 5px;
+            width: 18px;
+            height: auto;
+            cursor: pointer;
+        }
+    }
+  
+    .category-select {
+        padding: 1px 4px;
+        min-width: 200px;
+    }
+  
+    .category-select, .level-select {
+        outline: none;
+        padding: 1px 4px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background: #eff7ff;
+        
+        option {
+        display: inline-block;
+        padding: 20px;
+        }
+    }
+    .category-select {
+        margin: 0 10px 0 0;
+        min-width: 200px;
+    }
+  
+    .level-select {
+        margin: 0 10px 0 0;
+        min-width: 80px;
+        
+        ._1 {
+            background: #45c5ff;
+        }
+        ._2 {
+            background: #e3a7f5;
+        }
+        ._3 {
+            background: #ffe79d;
+        }
+        ._4 {
+            background: #ff9ebf;
+        }
+    }
+  
+    .email {
+        display: inline-block;
+        width: 200px;
+        margin: 0 10px 0 0;
+        padding: 3px 4px;
+        top: 2px;
+        font: {
+        size: 12px;
+        family: sans-serif;
+        }
+        outline: none;
+        border: 1px solid #ccc;
+        letter-spacing: 0.2px;
+        vertical-align: top;
+    }
+
+    .message {
+        display: inline-block;
+        margin: 0 10px 0 0;
+        line-height: 12px;
+
+        &::before {
+            font: {
+                size: 12px;
+                family: sans-serif;
+            }
+        }
+        &.invaild::before {
+            content: 'Invaild';
+            color: red;
+        }
+        &.success::before {
+            content: 'Success';
+            color: #00bf08;
+        }
+        &.error::before {
+            content: 'Error';
+            color: red;
+        }
+    }
+  
+    .btn-group {
+        display: inline-block;
+        top: -1px;
+        cursor: default;
+        vertical-align: top;
+        
+        .submit, .close  {
+            padding: 4px 6px;
+            font: {
+                size: 12px;
+                family: sans-serif;
+            }
+            outline: none;
+            border: none;
+            background: #2b97ec;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 2px;
+            text-shadow: 0 0 2px #000;
+            box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.63);
+        }
+        
+        .submit {
+            margin: 0 4px 0 0;
+            &:disabled {
+                background-color: #bdbdbd;
+                color: #989898;
+                text-shadow: none;
+                box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.09);
+            }  
+        }
+    }
+}

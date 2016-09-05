@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LWCP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jsSHA-1.5.0/sha.js"></script>
+    <script src="lwcp.js"></script>
+</head>
+<body>
+    <div class="LWCP-wrapper">
+        <!--LOGO-->
+        <div class="img-wrp">
+            <img src="/images/LIONIC-Logo.jpg" alt="" />
+        </div>
+
+        <!--Readonly-->
+        <div class="readonly">
+            <!--<div class="trustworthy">Trustworthy (88)</div>-->
+            <div class="category">unknown</div>
+        </div>
+
+        <!--Editable-->
+        <div class="editable">
+            <select name="" id="" class="category-select"></select>
+            <!--
+            <select class="level-select">
+                <option class="_1" value="">Trustworthy</option>
+                <option class="_2" value="">Suspicious</option>
+                <option class="_3" value="">Moderate Risk</option>
+                <option class="_4" value="">High Risk</option>
+            </select>
+            -->
+            <input type="text" id="email" class="email" placeholder="Email address" />
+            <span class="message"></span>
+            <div class="btn-group">
+                <button class="submit">Send Suggest</button>
+                <button class="close">Close</button>
+            </div>
+        </div>
+
+        <!--Suggest-->
+        <div class="suggest">
+            <span class="text">Suggest Change</span>
+            <img src="/images/close.png" alt="" />
+        </div>
+    </div>
+</body>
+</html>

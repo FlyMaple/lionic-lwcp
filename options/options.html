@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LWCP Options</title>
+    <link rel="stylesheet" href="/css/optionsStyle.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="options.js"></script>
+</head>
+<body>
+    <div class="LWCP-Options-wrapper">
+        <div class="header">
+            <img src="/images/options/logo.png" alt="" class="logo">
+        </div>
+        <div class="body">
+            <div class="left">
+                <ul class="menu">
+                    <li class="common active">Common</li>
+                    <li class="advance">Advance</li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="container">
+                    <div class="common">
+                        <div class="toolbar-settings">
+                            <h1 class="title">Toolbar Settings</h1>
+                            <ul class="settings">
+                                <li>
+                                    <div id="auto_hide" class="group">
+                                        <span class="label">Automatically hide toolbar?</span>
+                                        <span class="checkbox"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div id="redisplay" class="group">
+                                        <span class="label">Redisplay the toolbar when changing tabs?</span>
+                                        <span class="checkbox"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="submission-settings">
+                            <h1 class="title">Submission settings</h1>
+                            <ul class="settings">
+                                <li>
+                                    <div class="group">
+                                        <span class="label">Auto-fill email:</span>
+                                        <input id="email" type="text" class="text" placeholder="Email Address">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="advance" style="display: none;">
+                        <img src="/images/options/comingsoon.png" alt="">
+                    </div>
+                    <div class="footer">
+                        <span id="save_restore_message" class="message"></span>
+                        <button id="save" class="save">Save</button>
+                        <button id="restore" class="restore">Restore</button>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</body>
+</html>

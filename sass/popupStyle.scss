@@ -1,0 +1,50 @@
+@import 'compass/css3';
+@import 'compass/reset';
+
+
+*, *::after, *::before {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.nav {
+    width: 250px;
+    padding: 5px 10px;
+    cursor: default;
+
+    li {
+        padding: 15px 15px;
+        font: {
+            size: 13px;
+            family: sans-serif;
+        }
+        color: #565656;
+        cursor: pointer;
+        &:hover {
+            background: #fafafa;
+        }
+
+        &.hide {
+            display: none;
+        }
+        &.show {
+            display: none;
+        }
+        &.disable {
+            display: none;
+        }
+        &.enable {
+            display: none;
+        }
+        &.about {
+
+        }
+        &.help {
+
+        }
+        &.sp {
+            padding: 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+    }
+}
