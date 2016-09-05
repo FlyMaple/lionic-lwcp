@@ -2,7 +2,7 @@
 
 
 ## 安裝 & 設置
-1.[Lionic-LWCP](https://chrome.google.com/webstore/detail/jaceioamekicnglldcbpmhdoofacmpcg/publish-accepted?hl=zh-TW) 安裝 
+1.[Lionic-LWCP](https://chrome.google.com/webstore/detail/lwcp/jaceioamekicnglldcbpmhdoofacmpcg?hl=zh-TW) 安裝 
 
 ![chrome-extension](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/chrome-extension.png)
 
