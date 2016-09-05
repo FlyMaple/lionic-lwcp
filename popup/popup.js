@@ -53,10 +53,10 @@
     }
 
     function aboutLWCP() {
-
+		open('https://github.com/FlyMaple/lionic-lwcp');
     }
 
     function help() {
-        open('mailto:skye.wu@lionic.com');
+        open('https://github.com/FlyMaple/lionic-lwcp/issues');
     }
 })($);

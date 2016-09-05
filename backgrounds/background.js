@@ -70,13 +70,13 @@
     }
 
     function TabActivated(activeInfo) {
-        if (tab.url.indexOf('http') === 0) {
-            _tabs.get(activeInfo.tabId, function (tab) {
+        _tabs.get(activeInfo.tabId, function (tab) {
+            if (tab.url.indexOf('http') === 0) {
                 if (_options.redisplay) {
                     _tabs.sendMessage(tab.id, { action: 'TabActivated', isDisable: checkIsDisabled(tab.url) });
                 }
-            });
-        }
+            }
+        });
     }
 
     /** Function */
@@ -86,30 +86,30 @@
                 var ts = Math.floor(Date.now()/1000);
                 var uid = info.id || 'guest';
 
-                // $.ajax({
-                //     url: 'http://ufs.lionic.com:8083/api/v1/toolbar_user/' + uid + '/query',
-                //     type: 'post',
-                //     dataType: 'json',
-                //     data: JSON.stringify({
-                //         "ts": ts,
-                //         "cid": "ChromeToolbar",
-                //         "url": tab.url.split('#')[0],
-                //         "sig": getSig(ts + ':' + uid + ':' + tab.url.split('#')[0])
-                //     }),
-                //     success: function (r) {
-                //         _tabs.sendMessage(tab.id, {
-                //             action: 'analysisComplete', 
-                //             cate: {
-                //                 number: r.data.cat[0],
-                //                 text: transformText(r.data.cat[0])
-                //             }
-                //         });
-                //     }, 
-                //     error: function (r) {
-                //         console.log('AnalysisError:');
-                //         console.log(r);
-                //     }
-                // });
+                $.ajax({
+                    url: 'http://ufs.lionic.com:8083/api/v1/toolbar_user/' + uid + '/query',
+                    type: 'post',
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "ts": ts,
+                        "cid": "ChromeToolbar",
+                        "url": tab.url.split('#')[0],
+                        "sig": getSig(ts + ':' + uid + ':' + tab.url.split('#')[0])
+                    }),
+                    success: function (r) {
+                        _tabs.sendMessage(tab.id, {
+                            action: 'analysisComplete', 
+                            cate: {
+                                number: r.data.cat[0],
+                                text: transformText(r.data.cat[0])
+                            }
+                        });
+                    }, 
+                    error: function (r) {
+                        console.log('AnalysisError:');
+                        console.log(r);
+                    }
+                });
             });
         }
     }
