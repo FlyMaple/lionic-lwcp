@@ -1,19 +1,19 @@
 # Lionic-LWCP
 
 
-## ¦w¸Ë & ³]¸m
-1. [Lionic-LWCP](https://chrome.google.com/webstore/detail/jaceioamekicnglldcbpmhdoofacmpcg/publish-accepted?hl=zh-TW) ¦w¸Ë 
+## å®‰è£ & è¨­ç½®
+1.[Lionic-LWCP](https://chrome.google.com/webstore/detail/jaceioamekicnglldcbpmhdoofacmpcg/publish-accepted?hl=zh-TW) å®‰è£ 
 
-2. [ÂX¥RºŞ²z­¶­±](chrome://extensions/) ¶i¦æ LWCP ±`³W³]©w 
-    * ¦Û°ÊÁôÂÃ Toolbar (3¬í) (defulat: true)
-    * ­«¦^¤À­¶¬O§_­«·s¥[¸ü Toolbar (defulat: true)
-    * ¦Û°Ê¶ñ¤J Email Address
+2.[æ“´å……ç®¡ç†é é¢](chrome://extensions/) é€²è¡Œ LWCP å¸¸è¦è¨­å®š 
+ * è‡ªå‹•éš±è— Toolbar (3ç§’) (defulat: true)
+ * é‡å›åˆ†é æ˜¯å¦é‡æ–°åŠ è¼‰ Toolbar (defulat: true)
+ * è‡ªå‹•å¡«å…¥ Email Address
 
-3. ¶}©l¨Ï¥Î
+3.é–‹å§‹ä½¿ç”¨
 
-## ¶}©l¨Ï¥Î
-1. ­¶­±¸ü¤J§¹²¦«á·|®³ Url ¥h¤ÀªR©ÒÄİªº Category¡A¥u¤ÀªR http ¶}ÀY Url
-2. Toolbar ·|©T©w¦b³Ì¤U¤è¡A­YµLªk¥¿½T¤ÀªR¡A¥iÂI¿ï Suggest ¶i¦æ¤ÀÃş¦^õX
-3. ­Y Toolbar ¦Û°ÊÁôÂÃ«á¡A¥i¥HÂI¿ï LWCP Icon ±N¨äÅã¥Ü¥X¨Ó
-4. ¥i¥H§Q¥Î Toolbar Icon ¤¤ªº Disable Toolbar / Enable Toolbar ¶i¦æ Url ¬O§_¶i¦æ¤ÀªRªº³]©w
+## é–‹å§‹ä½¿ç”¨
+1.é é¢è¼‰å…¥å®Œç•¢å¾Œæœƒæ‹¿ Url å»åˆ†ææ‰€å±¬çš„ Categoryï¼Œåªåˆ†æ http é–‹é ­ Url
+2.Toolbar æœƒå›ºå®šåœ¨æœ€ä¸‹æ–¹ï¼Œè‹¥ç„¡æ³•æ­£ç¢ºåˆ†æï¼Œå¯é»é¸ Suggest é€²è¡Œåˆ†é¡å›é¥‹
+3.è‹¥ Toolbar è‡ªå‹•éš±è—å¾Œï¼Œå¯ä»¥é»é¸ LWCP Icon å°‡å…¶é¡¯ç¤ºå‡ºä¾†
+4.å¯ä»¥åˆ©ç”¨ Toolbar Icon ä¸­çš„ Disable Toolbar / Enable Toolbar é€²è¡Œ Url æ˜¯å¦é€²è¡Œåˆ†æçš„è¨­å®š
 
