@@ -3,7 +3,7 @@
 
 ## 安裝 & 設置
 1.[Lionic-LWCP](https://chrome.google.com/webstore/detail/jaceioamekicnglldcbpmhdoofacmpcg/publish-accepted?hl=zh-TW) 安裝 
-![bowser_action_png.png](public/images/bowser_action_png.png)
+![bowser_icon](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/bowser_icon.png)
 2.[擴充管理頁面](chrome://extensions/) 進行 LWCP 常規設定
   * 自動隱藏 Toolbar (3秒) (defulat: true)
   * 重回分頁是否重新加載 Toolbar (defulat: true)
