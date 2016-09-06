@@ -6,7 +6,7 @@
 
 ![chrome-extension](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/chrome-extension.png)
 
-<b>2.[手動建立安全憑證](https://ufs.lionic.com:8084/)<b>
+<b>2.[手動建立安全憑證](https://ufs.lionic.com:8084/)</b>
 
 ![Auth](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/auth.png)
 <br><br>
