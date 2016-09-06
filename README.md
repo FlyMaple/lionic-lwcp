@@ -6,7 +6,15 @@
 
 ![chrome-extension](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/chrome-extension.png)
 
-2.Url 輸入 chrome://extensions 進行 LWCP 常規設定
+<b>2.[手動建立安全憑證](https://ufs.lionic.com:8084/)<b>
+
+![Auth](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/auth.png)
+<br><br>
+<b>成功後會出現下圖: </b>
+
+![Auth](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/404.png)
+
+3.Url 輸入 chrome://extensions 進行 LWCP 常規設定
   * 自動隱藏 Toolbar (3秒) (defulat: true)
   * 重回分頁是否重新加載 Toolbar (defulat: true)
   * 自動填入 Email Address
