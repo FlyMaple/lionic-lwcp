@@ -11,7 +11,18 @@
 
     /** Listener */
     function RtOnMessage(message, sender, sendResponse) {
-        if (message.action === 'HideIfr') {
+        if (message.action === 'init') {
+            if (sender.tab.url.indexOf('http') === 0) {
+                _tabs.sendMessage(sender.tab.id, { 
+                    action: 'TabInit',
+                    tabId: sender.tab.id,
+                    options: _options,
+                    isDisable: checkIsDisabled(sender.tab.url)
+                }, function (resp) {
+                    
+                });
+            }
+        } else if (message.action === 'HideIfr') {
             _tabs.sendMessage(sender.tab.id, { action: 'HideIfr', tabId: sender.tab.id });
         } else if (message.action === 'analysis') {
             analysis(sender.tab);
@@ -51,21 +62,6 @@
                 setEnableToolbarUrl(tab[0].url);
                 _tabs.sendMessage(tab[0].id, { action: 'enableToolbar' });
             });
-        }
-    }
-    
-    function TabUpdated(tabId, changeInfo, tab) {
-        if (changeInfo.status && changeInfo.status === 'complete') {
-            if (tab.url.indexOf('http') === 0) {
-                _tabs.sendMessage(tab.id, { 
-                    action: 'TabComplete',
-                    tabId: tab.id,
-                    options: _options,
-                    isDisable: checkIsDisabled(tab.url)
-                }, function (resp) {
-                    
-                });
-            }
         }
     }
 
@@ -166,7 +162,8 @@
                     auto_hide: true,
                     redisplay: true,
                     email: '',
-                    disableUrls: []
+                    disableUrls: [],
+                    position: 'top'
                 };
             } else {
                 _options = LWCP.options;
@@ -209,7 +206,6 @@
     }
     
     setOptions();
-    _tabs.onUpdated.addListener(TabUpdated);
     _tabs.onActivated.addListener(TabActivated);
     _runtime.onMessage.addListener(RtOnMessage);
     chrome.storage.onChanged.addListener(setOptions);

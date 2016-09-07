@@ -35,10 +35,14 @@
                         auto_hide: true,
                         redisplay: true,
                         email: '',
-                        disableUrls: []
+                        disableUrls: [],
+                        position: 'top'
                     }
                 } else {
                     window._options = sotrage.LWCP.options;
+                    if (window._options.position === undefined) {
+                        window._options.position = 'top';
+                    }
                 }
                 render();
             });
@@ -47,6 +51,7 @@
         function render() {
             jQuery('#auto_hide').toggleClass('checked', window._options.auto_hide);
             jQuery('#redisplay').toggleClass('checked', window._options.redisplay);
+            jQuery('#position').toggleClass('checked', (window._options.position === 'bottom') ? true : false);
             jQuery('#email').val(window._options.email);
         }
 
@@ -55,6 +60,7 @@
                 options: {
                     auto_hide: jQuery('#auto_hide').hasClass('checked'),
                     redisplay: jQuery('#redisplay').hasClass('checked'),
+                    position: jQuery('#position').hasClass('checked') ? 'bottom' : 'top',
                     email: jQuery('#email').val(),
                     disableUrls: window._options.disableUrls || []
                 }

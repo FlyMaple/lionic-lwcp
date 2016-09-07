@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "LWCP",
     "description": "Lionic Web Category Parsers, analysis your web page!",
-    "version": "1.0",
+    "version": "1.0.4",
     "icons": {
         "16": "images/icon.png",
         "48": "images/icon.png",
@@ -33,7 +33,7 @@
             "matches": ["*://*/*"],
             "css": ["css/style.css"],
             "js": ["js/jquery.min.js", "contentscripts/contentscript.js"],
-            "run_at": "document_idle",
+            "run_at": "document_end",
             "all_frames": false
         }
     ]

@@ -9,14 +9,14 @@
     var _tId;
 
     function RtOnMessage(message, sender, sendResponse) {
-        if (message.action === 'TabComplete') {
+        if (message.action === 'TabInit') {
             _tabId = message.tabId;
             _options = message.options
-            appendLWCP(message.isDisable);
+            appendLWCP();
         } else if (message.action === 'HideIfr') {
             $('#LWCP-ifr').fadeOut();
         } else if (message.action === 'TabActivated') {
-            appendLWCP(message.isDisable);
+            appendLWCP();
         } else if (message.action === 'getOptionsComplete') {
             _options = message.options
         } else if (message.action === 'clearTimeout') {
@@ -38,28 +38,42 @@
         }
     }
 
-    function appendLWCP(isDisable) {
-        $('#LWCP-ifr').remove();
+    function appendLWCP() {
+        setTimeout(function () {
+            $('#LWCP-ifr').remove();
 
-        var disableClassName = '';
-        if (isDisable) {
-            disableClassName = 'disabled';
-        }
+            var $ifr = $('<iframe id="LWCP-ifr" src="' + _extension.getURL('contentscripts/lwcp/lwcp.html') + '"></iframe>').hide();
+            if (_options.isDisable) {
+                $ifr.addClass('disabled');
+            }
+            if($('#bcbar').length === 1) {
+                if ($('#bcbar').hasClass('top')) {
+                    $ifr.addClass('w-top');
+                } else {
+                    $ifr.addClass('w-bottom');
+                }
+            } else {
+                if (_options.position === 'bottom') {
+                    $ifr.addClass('bottom');
+                } else {
+                    $ifr.addClass('top');
+                }
+            }
+            $('body').append($ifr);
+            $ifr.fadeIn();
 
-        var $ifr = $('<iframe id="LWCP-ifr" class="' + disableClassName + '" src="' + _extension.getURL('contentscripts/lwcp/lwcp.html') + '"></iframe>').hide();
-        $('body').append($ifr);
-        $ifr.fadeIn();
-
-        setIfrTimeout();
+            setIfrTimeout();
+        }, 0);
     }
 
     function setIfrTimeout() {
         if (_options.auto_hide) {
             _tId = setTimeout(function () {
                 $('#LWCP-ifr').fadeOut();
-            }, 3000);
+            }, 5000);
         }
     }
 
+    _runtime.sendMessage({ action: 'init' });
     _runtime.onMessage.addListener(RtOnMessage);
 })();

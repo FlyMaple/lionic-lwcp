@@ -1,14 +1,26 @@
 #LWCP-ifr {
     position: fixed;
     width: 100%;
-    height: 40px;
-    bottom: 0;
+    height: 34px;
     left: 0;
     right: 0;
     border: 0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.52);
     z-index: 99999;
     &.disabled {
         display: none !important;
+    }
+    &.top {
+        top: 0;
+    }
+    &.w-top {
+        top: 31px;
+    }
+    &.bottom {
+        bottom: 0;
+    }
+    &.w-bottom {
+        bottom: 31px;
     }
 }
 
@@ -20,7 +32,6 @@
     height: 34px;
     background: #fff;
     z-index: 99999;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.52);
     *, *::after, *::before {
         position: relative;
         box-sizing: border-box;

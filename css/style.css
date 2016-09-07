@@ -67,19 +67,35 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 #LWCP-ifr {
   position: fixed;
   width: 100%;
-  height: 40px;
-  bottom: 0;
+  height: 34px;
   left: 0;
   right: 0;
   border: 0;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.52);
   z-index: 99999;
 }
 /* line 10, ../sass/_contentStyle.scss */
 #LWCP-ifr.disabled {
   display: none !important;
 }
+/* line 13, ../sass/_contentStyle.scss */
+#LWCP-ifr.top {
+  top: 0;
+}
+/* line 16, ../sass/_contentStyle.scss */
+#LWCP-ifr.w-top {
+  top: 31px;
+}
+/* line 19, ../sass/_contentStyle.scss */
+#LWCP-ifr.bottom {
+  bottom: 0;
+}
+/* line 22, ../sass/_contentStyle.scss */
+#LWCP-ifr.w-bottom {
+  bottom: 31px;
+}
 
-/* line 15, ../sass/_contentStyle.scss */
+/* line 27, ../sass/_contentStyle.scss */
 .LWCP-wrapper {
   position: fixed;
   left: 0;
@@ -88,38 +104,37 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 34px;
   background: #fff;
   z-index: 99999;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.52);
 }
-/* line 24, ../sass/_contentStyle.scss */
+/* line 35, ../sass/_contentStyle.scss */
 .LWCP-wrapper *, .LWCP-wrapper *::after, .LWCP-wrapper *::before {
   position: relative;
   box-sizing: border-box;
 }
-/* line 29, ../sass/_contentStyle.scss */
+/* line 40, ../sass/_contentStyle.scss */
 .LWCP-wrapper .readonly, .LWCP-wrapper .editable {
   display: inline-block;
   top: 50%;
   vertical-align: top;
   transform: translate(0, -50%);
 }
-/* line 36, ../sass/_contentStyle.scss */
+/* line 47, ../sass/_contentStyle.scss */
 .LWCP-wrapper .editable {
   display: none;
   line-height: 24px;
 }
-/* line 41, ../sass/_contentStyle.scss */
+/* line 52, ../sass/_contentStyle.scss */
 .LWCP-wrapper .img-wrp {
   display: inline-block;
   width: 60px;
   margin: 0 20px 0;
   top: 2px;
 }
-/* line 47, ../sass/_contentStyle.scss */
+/* line 58, ../sass/_contentStyle.scss */
 .LWCP-wrapper .img-wrp img {
   width: 100%;
   height: auto;
 }
-/* line 53, ../sass/_contentStyle.scss */
+/* line 64, ../sass/_contentStyle.scss */
 .LWCP-wrapper .trustworthy {
   display: inline-block;
   padding: 2px 8px;
@@ -130,7 +145,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #11324c;
   background-color: #7dc6ff;
 }
-/* line 66, ../sass/_contentStyle.scss */
+/* line 77, ../sass/_contentStyle.scss */
 .LWCP-wrapper .category {
   display: inline-block;
   padding: 2px 8px;
@@ -140,14 +155,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: sans-serif;
   vertical-align: top;
 }
-/* line 78, ../sass/_contentStyle.scss */
+/* line 89, ../sass/_contentStyle.scss */
 .LWCP-wrapper .suggest {
   position: absolute;
   top: 3px;
   right: 10px;
   cursor: default;
 }
-/* line 84, ../sass/_contentStyle.scss */
+/* line 95, ../sass/_contentStyle.scss */
 .LWCP-wrapper .suggest .text {
   margin: 0 4px 0 0;
   font-size: 12px;
@@ -155,19 +170,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   cursor: pointer;
   color: #0066FF;
 }
-/* line 93, ../sass/_contentStyle.scss */
+/* line 104, ../sass/_contentStyle.scss */
 .LWCP-wrapper .suggest img {
   top: 5px;
   width: 18px;
   height: auto;
   cursor: pointer;
 }
-/* line 101, ../sass/_contentStyle.scss */
+/* line 112, ../sass/_contentStyle.scss */
 .LWCP-wrapper .category-select {
   padding: 1px 4px;
   min-width: 200px;
 }
-/* line 106, ../sass/_contentStyle.scss */
+/* line 117, ../sass/_contentStyle.scss */
 .LWCP-wrapper .category-select, .LWCP-wrapper .level-select {
   outline: none;
   padding: 1px 4px;
@@ -175,38 +190,38 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-bottom: 1px solid #ccc;
   background: #eff7ff;
 }
-/* line 113, ../sass/_contentStyle.scss */
+/* line 124, ../sass/_contentStyle.scss */
 .LWCP-wrapper .category-select option, .LWCP-wrapper .level-select option {
   display: inline-block;
   padding: 20px;
 }
-/* line 118, ../sass/_contentStyle.scss */
+/* line 129, ../sass/_contentStyle.scss */
 .LWCP-wrapper .category-select {
   margin: 0 10px 0 0;
   min-width: 200px;
 }
-/* line 123, ../sass/_contentStyle.scss */
+/* line 134, ../sass/_contentStyle.scss */
 .LWCP-wrapper .level-select {
   margin: 0 10px 0 0;
   min-width: 80px;
 }
-/* line 127, ../sass/_contentStyle.scss */
+/* line 138, ../sass/_contentStyle.scss */
 .LWCP-wrapper .level-select ._1 {
   background: #45c5ff;
 }
-/* line 130, ../sass/_contentStyle.scss */
+/* line 141, ../sass/_contentStyle.scss */
 .LWCP-wrapper .level-select ._2 {
   background: #e3a7f5;
 }
-/* line 133, ../sass/_contentStyle.scss */
+/* line 144, ../sass/_contentStyle.scss */
 .LWCP-wrapper .level-select ._3 {
   background: #ffe79d;
 }
-/* line 136, ../sass/_contentStyle.scss */
+/* line 147, ../sass/_contentStyle.scss */
 .LWCP-wrapper .level-select ._4 {
   background: #ff9ebf;
 }
-/* line 141, ../sass/_contentStyle.scss */
+/* line 152, ../sass/_contentStyle.scss */
 .LWCP-wrapper .email {
   display: inline-block;
   width: 200px;
@@ -220,40 +235,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   letter-spacing: 0.2px;
   vertical-align: top;
 }
-/* line 157, ../sass/_contentStyle.scss */
+/* line 168, ../sass/_contentStyle.scss */
 .LWCP-wrapper .message {
   display: inline-block;
   margin: 0 10px 0 0;
   line-height: 12px;
 }
-/* line 162, ../sass/_contentStyle.scss */
+/* line 173, ../sass/_contentStyle.scss */
 .LWCP-wrapper .message::before {
   font-size: 12px;
   font-family: sans-serif;
 }
-/* line 168, ../sass/_contentStyle.scss */
+/* line 179, ../sass/_contentStyle.scss */
 .LWCP-wrapper .message.invaild::before {
   content: 'Invaild';
   color: red;
 }
-/* line 172, ../sass/_contentStyle.scss */
+/* line 183, ../sass/_contentStyle.scss */
 .LWCP-wrapper .message.success::before {
   content: 'Success';
   color: #00bf08;
 }
-/* line 176, ../sass/_contentStyle.scss */
+/* line 187, ../sass/_contentStyle.scss */
 .LWCP-wrapper .message.error::before {
   content: 'Error';
   color: red;
 }
-/* line 182, ../sass/_contentStyle.scss */
+/* line 193, ../sass/_contentStyle.scss */
 .LWCP-wrapper .btn-group {
   display: inline-block;
   top: -1px;
   cursor: default;
   vertical-align: top;
 }
-/* line 188, ../sass/_contentStyle.scss */
+/* line 199, ../sass/_contentStyle.scss */
 .LWCP-wrapper .btn-group .submit, .LWCP-wrapper .btn-group .close {
   padding: 4px 6px;
   font-size: 12px;
@@ -267,11 +282,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-shadow: 0 0 2px #000;
   box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.63);
 }
-/* line 204, ../sass/_contentStyle.scss */
+/* line 215, ../sass/_contentStyle.scss */
 .LWCP-wrapper .btn-group .submit {
   margin: 0 4px 0 0;
 }
-/* line 206, ../sass/_contentStyle.scss */
+/* line 217, ../sass/_contentStyle.scss */
 .LWCP-wrapper .btn-group .submit:disabled {
   background-color: #bdbdbd;
   color: #989898;
