@@ -15,8 +15,10 @@
 ![Auth](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/404.png)
 
 3.Url 輸入 chrome://extensions 進行 LWCP 常規設定
-  * 自動隱藏 Toolbar (3秒) (defulat: true)
+  * 自動隱藏 Toolbar (5秒) (defulat: true)
   * 重回分頁是否重新加載 Toolbar (defulat: true)
+  * Toolbar 置頂 / 置底  (defulat: 置頂)
+   * 若有安裝 Webroot，此項會失效，改用 Webr　oot 為主
   * 自動填入 Email Address
   
   ![options](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/options.png)
