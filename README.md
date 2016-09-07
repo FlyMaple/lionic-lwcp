@@ -18,7 +18,7 @@
   * 自動隱藏 Toolbar (5秒) (defulat: true)
   * 重回分頁是否重新加載 Toolbar (defulat: true)
   * Toolbar 置頂 / 置底  (defulat: 置頂)
-   * 若有安裝 Webroot，此項會失效，改用 Webr　oot 為主
+   * 若有安裝 Webroot，此項會失效，改用 Webroot 為主
   * 自動填入 Email Address
   
   ![options](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/options.png)
