@@ -16,7 +16,7 @@
         } else if (message.action === 'HideIfr') {
             $('#LWCP-ifr').fadeOut();
         } else if (message.action === 'TabActivated') {
-            appendLWCP();
+            $('#LWCP-ifr').fadeIn();
         } else if (message.action === 'getOptionsComplete') {
             _options = message.options
         } else if (message.action === 'clearTimeout') {
