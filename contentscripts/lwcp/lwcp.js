@@ -22,8 +22,17 @@
     /** Listener */
     function RtOnMessage(message, sender, sendResponse) {
         if (message.action === 'analysisComplete') {
-            $('.category-select').val(message.cate.number);
-            $('.category').text(message.cate.text);
+            var cateStr = '';
+            for (var i=0; i<message.cate.length; i++) {
+                var cate = message.cate[i];
+                if (i === 0) {
+                    cateStr = cate.text;
+                } else {
+                    cateStr += ', ' + cate.text;
+                }
+            }
+            $('.category').text(cateStr);
+            $('.category-select').val(message.cate[0].number);
         } else if (message.action === 'getWCFMapComplete') {
             generateCategoryOptions(message.wcfMap);
         } else if (message.action === 'SuggestComplete') {

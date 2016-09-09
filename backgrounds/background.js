@@ -95,10 +95,7 @@
                     success: function (r) {
                         _tabs.sendMessage(tab.id, {
                             action: 'analysisComplete', 
-                            cate: {
-                                number: r.data.cat[0],
-                                text: transformText(r.data.cat[0])
-                            }
+                            cate: transformText(r.data.cat)
                         });
                     }, 
                     error: function (r) {
@@ -139,11 +136,24 @@
         });
     }
 
-    function transformText(cateNumber) {
-        if (cateNumber === 0) {
-            return 'unknown';
+    function transformText(cates) {
+        var new_cates = [];
+        if (cates.length === 1) {
+            if (cates[0] === 0) {
+                new_cates.push({ number: cates[0], text: 'unknown' });
+            } else {
+                new_cates.push({ number: cates[0], text: wcfMap[cates[0]] });
+            }
+            return new_cates;
+        } else {
+            for (var i=0; i<cates.length; i++) {
+                new_cates.push({
+                    number: cates[i],
+                    text: wcfMap[cates[i]]
+                });
+            }
         }
-        return wcfMap[cateNumber];
+        return new_cates;
     }
 
     function getSig(hmacText) {

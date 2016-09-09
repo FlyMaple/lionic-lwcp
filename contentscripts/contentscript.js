@@ -12,11 +12,14 @@
         if (message.action === 'TabInit') {
             _tabId = message.tabId;
             _options = message.options
-            appendLWCP();
+            appendLWCP(message.isDisable);
         } else if (message.action === 'HideIfr') {
             $('#LWCP-ifr').fadeOut();
         } else if (message.action === 'TabActivated') {
-            $('#LWCP-ifr').fadeIn();
+            if (!$('#LWCP-ifr').hasClass('disabled')) {
+                $('#LWCP-ifr').fadeIn();
+            }
+            setIfrTimeout();
         } else if (message.action === 'getOptionsComplete') {
             _options = message.options
         } else if (message.action === 'clearTimeout') {
@@ -32,18 +35,20 @@
             var isVisible = $('#LWCP-ifr').is(':visible');
             sendResponse({ isVisible: isVisible, isDisable: message.isDisable });
         } else if (message.action === 'disableToolbar') {
-            $('#LWCP-ifr').fadeOut();
+            $('#LWCP-ifr').fadeOut(function () {
+                $(this).addClass('disabled');
+            });
         } else if (message.action === 'enableToolbar') {
             $('#LWCP-ifr').hide().removeClass('disabled').fadeIn();
         }
     }
 
-    function appendLWCP() {
+    function appendLWCP(isDisable) {
         setTimeout(function () {
             $('#LWCP-ifr').remove();
 
             var $ifr = $('<iframe id="LWCP-ifr" src="' + _extension.getURL('contentscripts/lwcp/lwcp.html') + '"></iframe>').hide();
-            if (_options.isDisable) {
+            if (isDisable) {
                 $ifr.addClass('disabled');
             }
             if($('#bcbar').length === 1) {
