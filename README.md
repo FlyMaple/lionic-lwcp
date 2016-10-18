@@ -10,7 +10,7 @@
 
 ![Auth](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/auth.png)
 <br><br>
-<b>成功後會出現下圖: </b>
+<b>成功後會出現下圖(下面看起來像文字的是一張圖，404 page not found 是正確的): </b>
 
 ![Auth](https://raw.githubusercontent.com/FlyMaple/lionic-lwcp/master/public/images/404.png)
 
