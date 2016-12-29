@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>LWCP</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contentStyle.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jsSHA-1.5.0/sha.js"></script>
     <script src="lwcp.js"></script>
@@ -19,10 +19,12 @@
         <div class="readonly">
             <!--<div class="trustworthy">Trustworthy (88)</div>-->
             <div class="category"></div>
+            <!--<button id="confirm"></button>-->
         </div>
 
         <!--Editable-->
         <div class="editable">
+            <span class="label">Suggest: </span>
             <select name="" id="" class="category-select"></select>
             <!--
             <select class="level-select">
@@ -32,19 +34,25 @@
                 <option class="_4" value="">High Risk</option>
             </select>
             -->
-            <input type="text" id="email" class="email" placeholder="Email address" />
+            <input type="text" id="email" class="email" placeholder="Your email address" />
             <span class="message"></span>
             <div class="btn-group">
+                <!-- 2016-10-18
                 <button class="submit">Send Suggest</button>
                 <button class="close">Close</button>
+                -->
+                <button class="submit"></button>
+                <button class="close">X</button>
             </div>
         </div>
 
         <!--Suggest-->
+        <!-- 2016-10-18
         <div class="suggest">
             <span class="text">Suggest Change</span>
             <img src="/images/close.png" alt="" />
         </div>
+        -->
     </div>
 </body>
 </html>

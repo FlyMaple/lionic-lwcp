@@ -1,5 +1,5 @@
 (function (jQuery) {
-    window._options;
+    window._options, window._lastSuggestCate, window._suggestDomains;
 
     jQuery(document).ready(function () {
         function LeftMenuClick(ev) {
@@ -43,6 +43,13 @@
                     if (window._options.position === undefined) {
                         window._options.position = 'top';
                     }
+
+                    window._lastSuggestCate = LWCP.lastSuggestCate;
+
+                    window._suggestDomains = LWCP.suggestDomains;
+                    if (LWCP.suggestDomains === undefined) {
+                        window._suggestDomains = [];
+                    }
                 }
                 render();
             });
@@ -63,7 +70,9 @@
                     position: jQuery('#position').hasClass('checked') ? 'bottom' : 'top',
                     email: jQuery('#email').val(),
                     disableUrls: window._options.disableUrls || []
-                }
+                },
+                lastSuggestCate: window._lastSuggestCate,
+                suggestDomains: window._suggestDomains
             }}, function () {
                 jQuery('#save_restore_message').addClass('success');
                 setTimeout(function () {

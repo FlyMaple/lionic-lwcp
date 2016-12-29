@@ -8,10 +8,12 @@
         _runtime.sendMessage({ action: 'getWCFMap' });
 
         $('body').on('click', BodyClicked);
-        $('.suggest .text').on('click', viewSwitch);
+        // $('.suggest .text').on('click', viewSwitch); //  2016-10-18
         $('.btn-group .submit').on('click', SuggestSubmit);
-        $('.btn-group .close').on('click', viewSwitch);
-        $('.suggest img').on('click', HideLWCP);
+        // $('.btn-group .close').on('click', viewSwitch); //  2016-10-18
+        // $('.suggest img').on('click', HideLWCP); //  2016-10-18
+        $('.btn-group .close').on('click', HideLWCP);
+        $('#confirm').on('click', confirmClicked);
 
         render();
         analysis();
@@ -32,14 +34,22 @@
                 }
             }
             $('.category').text(cateStr);
-            $('.category-select').val(message.cate[0].number);
+            // $('.category-select').val(message.cate[0].number);  //  2016-10-18
+            if (message.lastSuggestCate) {
+                $('.category-select').val(message.lastSuggestCate);  //  2016-10-18
+            } else {
+                $('.category-select').val(message.cate[0].number);
+            }
+            if (message.isSuggested) {
+                $('.message').removeClass('success invaild error').addClass('sent');
+            }
         } else if (message.action === 'getWCFMapComplete') {
             generateCategoryOptions(message.wcfMap);
         } else if (message.action === 'SuggestComplete') {
             $('.btn-group .submit').attr('disabled', true);
-            $('.message').removeClass('invaild error').addClass('success');
+            $('.message').removeClass('invaild error sent').addClass('success');
         } else if (message.action === 'SuggestError') {
-            $('.message').removeClass('success invaild').addClass('error');
+            $('.message').removeClass('success invaild sent').addClass('error');
         }
     }
 
@@ -61,6 +71,10 @@
             _runtime.sendMessage({ action: 'clearTimeout', reset: true });
         }
     }
+    
+    function confirmClicked() {
+        $(this).attr('disabled', true);
+    }
 
     /** Function */
     function generateCategoryOptions(wcfMap) {
@@ -81,7 +95,7 @@
         for (var i = 0; i < wcfsorts.length; i++) {
             var text = wcfsorts[i].split('::')[0];
             var val = wcfsorts[i].split('::')[1];
-            var $option = $('<option value="' + val + '">' + text + '</option>')
+            var $option = $('<option value="' + val + '">' + text + '</option>');
             $('.category-select').append($option);
         }
     }
@@ -90,30 +104,30 @@
         _runtime.sendMessage({ action: 'analysis' });
     }
 
-    function viewSwitch(ev) {
-        ev.stopPropagation();
+    // function viewSwitch(ev) {
+    //     ev.stopPropagation();
 
-        var $suggest = $('.LWCP-wrapper .suggest .text');
-        var $readonly = $('.LWCP-wrapper .readonly');
-        var $editable = $('.LWCP-wrapper .editable');
+    //     var $suggest = $('.LWCP-wrapper .suggest .text');
+    //     var $readonly = $('.LWCP-wrapper .readonly');
+    //     var $editable = $('.LWCP-wrapper .editable');
 
-        if ($readonly.is(':visible')) {
-            $suggest.hide();
-            $readonly.fadeOut(function () {
-                $editable.fadeIn().css({ display: 'inline-block' });
-            });
+    //     if ($readonly.is(':visible')) {
+    //         $suggest.hide();
+    //         $readonly.fadeOut(function () {
+    //             $editable.fadeIn().css({ display: 'inline-block' });
+    //         });
             
-            _suggesting = true
-            _runtime.sendMessage({ action: 'clearTimeout', reset: false });
-        } else {
-            $suggest.show();
-            $editable.fadeOut(function () {
-                $readonly.fadeIn().css({ display: 'inline-block' });
-            });
-            _suggesting = false
-            _runtime.sendMessage({ action: 'clearTimeout', reset: true });
-        }
-    }
+    //         _suggesting = true
+    //         _runtime.sendMessage({ action: 'clearTimeout', reset: false });
+    //     } else {
+    //         $suggest.show();
+    //         $editable.fadeOut(function () {
+    //             $readonly.fadeIn().css({ display: 'inline-block' });
+    //         });
+    //         _suggesting = false
+    //         _runtime.sendMessage({ action: 'clearTimeout', reset: true });
+    //     }
+    // }
 
     function render() {
         chrome.storage.local.get('LWCP', function (storage) {

@@ -1,4 +1,30 @@
 @import 'compass/css3';
-@import 'compass/reset';
 
-@import '_contentStyle';
+#LWCP-ifr {
+    position: fixed;
+    width: 100% !important;
+    height: 34px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: 0;
+    right: 0;
+    border: 0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.52);
+    border-radius: 0 !important; 
+    z-index: 999999999999;
+    &.disabled {
+        display: none !important;
+    }
+    &.top {
+        top: 0;
+    }
+    &.w-top {
+        top: 31px;
+    }
+    &.bottom {
+        bottom: 0;
+    }
+    &.w-bottom {
+        bottom: 31px;
+    }
+}

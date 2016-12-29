@@ -3,7 +3,7 @@
 
     var wcfMap = {"10000":"Pornography","11000":"Nudity and Potentially Adult Content","12000":"Gambling and Lottery","13000":"Alcohol and Tobacco","14000":"Abused Drug","15000":"Ultraism","16000":"Abortion","17000":"Criminal Actions","18000":"Violence and Bloody","19000":"Gross","20000":"Games","21000":"Instant Messaging","22000":"Dating","23000":"Social Network","24000":"Web Chat Room","25000":"Shopping and Auction","26000":"Music","27000":"Comics and Anime","28000":"Entertainment and Arts","29000":"Streaming and VoIP","30000":"Peer to Peer","31000":"Multimedia Download","32000":"Online Sharing and Storage","33000":"Shareware and Freeware","34000":"Web Mail","35000":"System and Antivirus Update","36000":"Content Delivery Network","37000":"Web Service API","38000":"Network Service","39000":"Remote Control","40000":"Proxy and Anonymizers","41000":"Phishing and Fraud","42000":"Malware","43000":"BlackHat SEO Sites","44000":"Malicious APPs","45000":"Advertisments and Pop-Ups","46000":"Portals and Search Engines","47000":"Transportation","48000":"Real Estate","49000":"Finance and Insurance","50000":"Computers and Information Technology","51000":"Business and Service","52000":"Reference and Research","53000":"Education","54000":"Military and Weapons","55000":"Politics and Government","56000":"Associations and Charitable Organizations","57000":"Travel","58000":"Food and Drink","59000":"Home and Garden","60000":"Health and Medicine","61000":"Religion and Numerology","62000":"Sports","63000":"Automobile and Vehicles","64000":"Job Search","65000":"News and Media","66000":"Forums and Newsgroups","67000":"Blogs and Personal Sites","68000":"Unrated","69000":"Parking Domains","70000":"Dead Sites","71000":"Private IP Addresses"};
 
-    var _options;
+    var _options, _lastSuggestCate, _suggestDomains;
 
     var _tabs = chrome.tabs;
     var _runtime = chrome.runtime;
@@ -29,6 +29,7 @@
         } else if (message.action === 'suggest') {
             suggest(sender.tab, message.cate, message.email);
         } else if (message.action === 'getWCFMap') {
+            //  2016-10-18
             _tabs.sendMessage(sender.tab.id, { action: 'getWCFMapComplete', wcfMap: wcfMap });
         } else if (message.action === 'getOptions') {
             _tabs.sendMessage(sender.tab.id, { action: 'getOptionsComplete', options: _options });
@@ -65,6 +66,15 @@
         }
     }
 
+    function RtOnUpdate(details) {
+        chrome.storage.local.set({'LWCP': {
+            options: _options,
+            lastSuggestCate: _lastSuggestCate,
+            suggestDomains: _suggestDomains,
+            details: details
+        }});
+    }
+
     function TabActivated(activeInfo) {
         _tabs.get(activeInfo.tabId, function (tab) {
             if (tab.url.indexOf('http') === 0) {
@@ -89,13 +99,15 @@
                     data: JSON.stringify({
                         "ts": ts,
                         "cid": "ChromeToolbar",
-                        "url": tab.url.split('#')[0],
-                        "sig": getSig(ts + ':' + uid + ':' + tab.url.split('#')[0])
+                        "url": decodeURI(tab.url.split('#')[0]),
+                        "sig": getSig(ts + ':' + uid + ':' + decodeURI(tab.url.split('#')[0]))
                     }),
                     success: function (r) {
                         _tabs.sendMessage(tab.id, {
                             action: 'analysisComplete', 
-                            cate: transformText(r.data.cat)
+                            cate: transformText(r.data.cat),
+                            lastSuggestCate: _lastSuggestCate,
+                            isSuggested: checkSuggested(tab.url)
                         });
                     }, 
                     error: function (r) {
@@ -119,12 +131,14 @@
                 data: JSON.stringify({
                     "ts": ts,
                     "cid": "ChromeToolbar",
-                    "url": tab.url,
-                    "sig": getSig(ts + ':' + uid + ':' + tab.url),
+                    "url": decodeURI(tab.url),
+                    "sig": getSig(ts + ':' + uid + ':' + decodeURI(tab.url)),
                     "sug_cat": parseInt(cate),
                     "email": email
                 }),
                 success: function (r) {
+                    addSuggestDomainList(tab.url); //  2016-10-18
+                    setLastTimeSuggestCate(parseInt(cate)); //  2016-10-18
                     _tabs.sendMessage(tab.id, { action: 'SuggestComplete' });
                 }, 
                 error: function (r) {
@@ -173,12 +187,51 @@
                     redisplay: true,
                     email: '',
                     disableUrls: [],
-                    position: 'top'
+                    position: 'top',
+                    lastSuggestCate: -1
                 };
+                _suggestDomains = [];
             } else {
                 _options = LWCP.options;
+                _lastSuggestCate = LWCP.lastSuggestCate; 
+                _suggestDomains = LWCP.suggestDomains || [];
             }
         });
+    }
+
+    //  2016-10-18
+    function setLastTimeSuggestCate(cate) {
+        chrome.storage.local.set({'LWCP': {
+            options: _options,
+            lastSuggestCate: cate,
+            suggestDomains: _suggestDomains
+        }});
+    }
+
+    //  2016-10-18
+    function addSuggestDomainList(url) {
+        var domain = (new URL(url)).hostname;
+
+        _suggestDomains.push(domain);
+        chrome.storage.local.set({'LWCP': {
+            options: _options,
+            lastSuggestCate: _lastSuggestCate,
+            suggestDomains: _suggestDomains
+        }});
+    }
+
+    //  2016-10-18
+    function checkSuggested(url) {
+        var domain = (new URL(url)).hostname;
+        var finded = _suggestDomains.find(function (e, i) {
+             return (e === domain);
+        });
+
+        if (finded) {
+            return true;
+        }
+
+        return false;
     }
 
     function setDisableToolbarUrl(url) {
@@ -188,8 +241,11 @@
                 auto_hide: _options.auto_hide,
                 redisplay: _options.redisplay,
                 email: _options.email,
-                disableUrls: _options.disableUrls
-            }
+                disableUrls: _options.disableUrls,
+                position: _options.position
+            },
+            lastSuggestCate: _lastSuggestCate,
+            suggestDomains: _suggestDomains
         }});
     }
 
@@ -202,8 +258,11 @@
                     auto_hide: _options.auto_hide,
                     redisplay: _options.redisplay,
                     email: _options.email,
-                    disableUrls: _options.disableUrls
-                }
+                    disableUrls: _options.disableUrls,
+                    position: _options.position
+                },
+                lastSuggestCate: _lastSuggestCate,
+                suggestDomains: _suggestDomains
             }});
         }
     }
@@ -218,5 +277,6 @@
     setOptions();
     _tabs.onActivated.addListener(TabActivated);
     _runtime.onMessage.addListener(RtOnMessage);
+    _runtime.onUpdateAvailable.addListener(RtOnUpdate);
     chrome.storage.onChanged.addListener(setOptions);
 })();
